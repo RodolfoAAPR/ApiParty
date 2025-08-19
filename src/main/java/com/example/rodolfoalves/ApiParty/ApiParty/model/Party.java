@@ -16,7 +16,7 @@ import lombok.Setter;
 @Setter
 public class Party {
 
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Long id;
 
