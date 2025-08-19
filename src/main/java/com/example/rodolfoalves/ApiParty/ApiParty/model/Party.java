@@ -22,4 +22,8 @@ public class Party {
 
     private String name;
 
+    private String address;
+
+    private int totalPeople;
+
 }
