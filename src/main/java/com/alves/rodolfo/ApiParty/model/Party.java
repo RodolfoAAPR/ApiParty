@@ -1,4 +1,4 @@
-package com.example.rodolfoalves.ApiParty.ApiParty.model;
+package com.alves.rodolfo.ApiParty.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
