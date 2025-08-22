@@ -1,9 +1,7 @@
 package com.alves.rodolfo.ApiParty.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,10 +18,16 @@ public class Party {
     @Id
     private Long id;
 
+    @Column(name = "name", length = 100, nullable = false)
+    @NotBlank
     private String name;
 
+    @Column(name = "address", length = 100, nullable = false)
+    @NotBlank
     private String address;
 
+    @Column(name = "total_people", nullable = false)
+    @NotBlank
     private int totalPeople;
 
 }
