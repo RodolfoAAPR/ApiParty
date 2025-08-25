@@ -1,6 +1,7 @@
-package com.example.rodolfoalves.ApiParty.ApiParty.model;
+package com.alves.rodolfo.ApiParty.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,7 +25,11 @@ public class Person {
     @NotBlank
     private String name;
 
+    @Column(name = "age", length = 3, nullable = false)
+    @NotBlank
     private int age;
 
+    @Column(name = "cpf", length = 11, nullable = false)
+    @NotBlank
     private String cpf;
 }
