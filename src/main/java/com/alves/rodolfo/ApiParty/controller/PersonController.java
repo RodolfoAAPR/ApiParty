@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/person")
+@RequestMapping("/guests")
 public class PersonController {
 
     @Autowired
@@ -20,8 +20,8 @@ public class PersonController {
     private PersonRepository personRepository;
 
 
-    @PostMapping("/person")
-    public ResponseEntity<String> registerPerson(@RequestBody Person person) {
+    @PostMapping("/register-guest")
+    public ResponseEntity<String> registerGuest(@RequestBody Person person) {
         if(person.getAge() < 18){
             return ResponseEntity.badRequest().body(person.getName() + " must have 18 years old or more.");
         }
@@ -31,7 +31,7 @@ public class PersonController {
     }
 
     @GetMapping
-    public List<Person> showAllPeople(){
+    public List<Person> showAllGuests(){
         return personRepository.findAll();
     }
 }
