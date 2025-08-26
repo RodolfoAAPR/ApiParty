@@ -20,7 +20,7 @@ public class PersonController {
     private PersonRepository personRepository;
 
 
-    @PostMapping("/person")
+    @PostMapping("/register-guest")
     public ResponseEntity<String> registerPerson(@RequestBody Person person) {
         if(person.getAge() < 18){
             return ResponseEntity.badRequest().body(person.getName() + " must have 18 years old or more.");
