@@ -34,4 +34,21 @@ public class PersonController {
     public List<Person> showAllGuests(){
         return personRepository.findAll();
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<String> updateGuest(@RequestBody Person newGuest, @PathVariable Long id){
+        return personRepository.findById(id).map(person -> {
+            if(newGuest.getAge() < 18) {
+                return ResponseEntity.badRequest().body(newGuest.getName() + " must have 18 years old at least.");
+            }
+
+            person.setName(newGuest.getName());
+            person.setAge(newGuest.getAge());
+            person.setCpf(newGuest.getCpf());
+
+            personRepository.save(person);
+
+            return ResponseEntity.ok(person.getName() + " modified successfully");
+        }).orElse(ResponseEntity.notFound().build());
+    }
 }
