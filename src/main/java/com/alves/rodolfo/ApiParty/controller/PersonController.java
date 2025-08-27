@@ -20,7 +20,7 @@ public class PersonController {
     private PersonRepository personRepository;
 
 
-    @PostMapping("/register-guest")
+    @PostMapping("/register")
     public ResponseEntity<String> registerGuest(@RequestBody Person person) {
         if(person.getAge() < 18){
             return ResponseEntity.badRequest().body(person.getName() + " must have 18 years old or more.");
@@ -33,5 +33,22 @@ public class PersonController {
     @GetMapping
     public List<Person> showAllGuests(){
         return personRepository.findAll();
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<String> updateGuest(@RequestBody Person newGuest, @PathVariable Long id){
+        return personRepository.findById(id).map(person -> {
+            if(newGuest.getAge() < 18) {
+                return ResponseEntity.badRequest().body(newGuest.getName() + " must have 18 years old at least.");
+            }
+
+            person.setName(newGuest.getName());
+            person.setAge(newGuest.getAge());
+            person.setCpf(newGuest.getCpf());
+
+            personRepository.save(person);
+
+            return ResponseEntity.ok(person.getName() + " modified successfully");
+        }).orElse(ResponseEntity.notFound().build());
     }
 }
