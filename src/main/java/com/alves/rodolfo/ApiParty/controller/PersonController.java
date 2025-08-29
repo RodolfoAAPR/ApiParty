@@ -51,4 +51,10 @@ public class PersonController {
             return ResponseEntity.ok(person.getName() + " modified successfully");
         }).orElse(ResponseEntity.notFound().build());
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteGuest(@PathVariable Long id){
+        personRepository.deleteById(id);
+        return ResponseEntity.noContent().build();
+    }
 }
