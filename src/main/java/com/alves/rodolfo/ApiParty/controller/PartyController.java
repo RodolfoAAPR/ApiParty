@@ -39,4 +39,11 @@ public class PartyController {
             return ResponseEntity.ok(party.getName() + " modified successfully!");
         }).orElse(ResponseEntity.notFound().build());
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteParty(@PathVariable Long id){
+        this.partyRepository.deleteById(id);
+
+        return ResponseEntity.noContent().build();
+    }
 }
