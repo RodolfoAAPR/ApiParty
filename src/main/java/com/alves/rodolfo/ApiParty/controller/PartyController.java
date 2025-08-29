@@ -26,4 +26,17 @@ public class PartyController {
     public List<Party> getAllParties(){
         return partyRepository.findAll();
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<String> updateParty(@RequestBody Party newParty, @PathVariable Long id){
+        return partyRepository.findById(id).map(party -> {
+            party.setName(newParty.getName());
+            party.setAddress(newParty.getAddress());
+            party.setTotalPeople(newParty.getTotalPeople());
+
+            partyRepository.save(party);
+
+            return ResponseEntity.ok(party.getName() + " modified successfully!");
+        }).orElse(ResponseEntity.notFound().build());
+    }
 }
