@@ -11,8 +11,8 @@ public class PartyService {
     @Autowired
     private PartyRepository partyRepository;
 
-    public void createParty(Party party){
-        partyRepository.save(party);
+    public Party createParty(Party party){
+        return partyRepository.save(party);
     }
 
     public Party findPartyById(Long id){
