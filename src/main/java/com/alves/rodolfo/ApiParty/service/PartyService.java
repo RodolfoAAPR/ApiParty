@@ -12,7 +12,7 @@ public class PartyService {
     private PartyRepository partyRepository;
 
     public Party createParty(Party party){
-        partyRepository.save(party);
+        return partyRepository.save(party);
     }
 
     public Party findPartyById(Long id){
