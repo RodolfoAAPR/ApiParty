@@ -36,4 +36,10 @@ public class PartyService {
            return ResponseEntity.ok(party.getName() + " party modified successfully");
         }).orElse(ResponseEntity.notFound().build());
     }
+
+    public ResponseEntity<String> deleteParty(@PathVariable Long id){
+        this.partyRepository.deleteById(id);
+
+        return ResponseEntity.noContent().build();
+    }
 }
