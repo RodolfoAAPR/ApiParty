@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/guests")
-public class PersonController {
+public class GuestController {
 
     @Autowired
     private PersonService personService;
