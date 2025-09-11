@@ -2,7 +2,7 @@ package com.alves.rodolfo.ApiParty.controller;
 
 import com.alves.rodolfo.ApiParty.model.Guest;
 import com.alves.rodolfo.ApiParty.repository.GuestRepository;
-import com.alves.rodolfo.ApiParty.service.PersonService;
+import com.alves.rodolfo.ApiParty.service.GuestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +14,7 @@ import java.util.List;
 public class GuestController {
 
     @Autowired
-    private PersonService personService;
+    private GuestService personService;
 
     @Autowired
     private GuestRepository personRepository;
