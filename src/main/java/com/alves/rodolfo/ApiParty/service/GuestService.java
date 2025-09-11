@@ -6,7 +6,6 @@ import com.alves.rodolfo.ApiParty.repository.GuestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Optional;
 
@@ -26,7 +25,7 @@ public class GuestService {
         ));
     }
 
-    public Guest createPerson(Guest guest){
+    public Guest createGuest(Guest guest){
         if(guest.getAge() < 18)
             ResponseEntity.badRequest().body(guest.getName() + " must have 18 years old at least!");
 
