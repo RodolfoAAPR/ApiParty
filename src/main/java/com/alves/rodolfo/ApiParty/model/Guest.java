@@ -13,7 +13,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table
-public class Person {
+public class Guest {
     public static final String TABLE_NAME = "person";
 
     @Id
