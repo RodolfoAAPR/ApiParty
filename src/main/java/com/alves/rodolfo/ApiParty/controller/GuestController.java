@@ -1,7 +1,7 @@
 package com.alves.rodolfo.ApiParty.controller;
 
 import com.alves.rodolfo.ApiParty.model.Guest;
-import com.alves.rodolfo.ApiParty.repository.PersonRepository;
+import com.alves.rodolfo.ApiParty.repository.GuestRepository;
 import com.alves.rodolfo.ApiParty.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +17,7 @@ public class GuestController {
     private PersonService personService;
 
     @Autowired
-    private PersonRepository personRepository;
+    private GuestRepository personRepository;
 
 
     @PostMapping("/register")

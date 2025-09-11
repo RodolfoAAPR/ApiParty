@@ -2,7 +2,7 @@ package com.alves.rodolfo.ApiParty.service;
 
 import com.alves.rodolfo.ApiParty.model.Guest;
 import com.alves.rodolfo.ApiParty.repository.PartyRepository;
-import com.alves.rodolfo.ApiParty.repository.PersonRepository;
+import com.alves.rodolfo.ApiParty.repository.GuestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +12,7 @@ import java.util.Optional;
 public class PersonService {
 
     @Autowired
-    private PersonRepository personRepository;
+    private GuestRepository personRepository;
 
     @Autowired
     private PartyRepository partyRepository;
