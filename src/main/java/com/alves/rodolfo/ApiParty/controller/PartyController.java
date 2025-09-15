@@ -26,7 +26,7 @@ public class PartyController {
 
     @GetMapping
     public List<Party> getAllParties(){
-        return partyRepository.findAll();
+        return partyService.findAllParties();
     }
 
     @PutMapping("/{id}")
