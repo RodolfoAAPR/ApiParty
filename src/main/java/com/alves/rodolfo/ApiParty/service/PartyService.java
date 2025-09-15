@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import java.util.List;
+
 @Service
 public class PartyService {
 
@@ -21,6 +23,10 @@ public class PartyService {
     public Party findPartyById(Long id){
         return partyRepository.findById(id)
                 .orElse(null);
+    }
+
+    public List<Party> findAllParties(){
+        return partyRepository.findAll();
     }
 
     public ResponseEntity<String> updateParty(@RequestBody Party newParty, @PathVariable Long id){
