@@ -33,7 +33,9 @@ public class GuestService {
         return guestRepository.save(guest);
     }
 
-
+    public List<Guest> findAllGuests(){
+        return guestRepository.findAll();
+    }
 }
 
 
