@@ -20,7 +20,7 @@ public class GuestService {
     private PartyRepository partyRepository;
 
     public Guest findById(Long id){
-        Optional<Guest>  guest = this.guestRepository.findById(id);
+        Optional<Guest> guest = this.guestRepository.findById(id);
         return guest.orElseThrow(() -> new RuntimeException(
                 "Usuário " + Guest.class.getName() + " não encontrado."
         ));
