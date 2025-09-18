@@ -35,6 +35,10 @@ public class GuestService {
     public List<Guest> findAllGuests(){
         return guestRepository.findAll();
     }
+
+    public void deleteById(Long id){
+        guestRepository.deleteById(id);
+    }
 }
 
 
