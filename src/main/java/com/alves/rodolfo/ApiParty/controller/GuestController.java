@@ -1,8 +1,8 @@
 package com.alves.rodolfo.ApiParty.controller;
 
-import com.alves.rodolfo.ApiParty.model.Person;
-import com.alves.rodolfo.ApiParty.repository.PersonRepository;
-import com.alves.rodolfo.ApiParty.service.PersonService;
+import com.alves.rodolfo.ApiParty.model.Guest;
+import com.alves.rodolfo.ApiParty.repository.GuestRepository;
+import com.alves.rodolfo.ApiParty.service.GuestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,17 +11,17 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/guests")
-public class PersonController {
+public class GuestController {
 
     @Autowired
-    private PersonService personService;
+    private GuestService personService;
 
     @Autowired
-    private PersonRepository personRepository;
+    private GuestRepository personRepository;
 
 
     @PostMapping("/register")
-    public ResponseEntity<String> registerGuest(@RequestBody Person person) {
+    public ResponseEntity<String> registerGuest(@RequestBody Guest person) {
         if(person.getAge() < 18){
             return ResponseEntity.badRequest().body(person.getName() + " must have 18 years old or more.");
         }
@@ -31,12 +31,12 @@ public class PersonController {
     }
 
     @GetMapping
-    public List<Person> showAllGuests(){
+    public List<Guest> showAllGuests(){
         return personRepository.findAll();
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<String> updateGuest(@RequestBody Person newGuest, @PathVariable Long id){
+    public ResponseEntity<String> updateGuest(@RequestBody Guest newGuest, @PathVariable Long id){
         return personRepository.findById(id).map(person -> {
             if(newGuest.getAge() < 18) {
                 return ResponseEntity.badRequest().body(newGuest.getName() + " must have 18 years old at least.");
