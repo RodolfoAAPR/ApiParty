@@ -36,8 +36,10 @@ public class GuestService {
         return guestRepository.findAll();
     }
 
-    public void deleteById(Long id){
+    public ResponseEntity<String> deleteById(Long id){
         guestRepository.deleteById(id);
+
+        return ResponseEntity.noContent().build();
     }
 }
 
