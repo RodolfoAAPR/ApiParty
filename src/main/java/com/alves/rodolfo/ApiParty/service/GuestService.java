@@ -19,11 +19,10 @@ public class GuestService {
     @Autowired
     private PartyRepository partyRepository;
 
-    public Guest findById(Long id){
-        Optional<Guest> guest = this.guestRepository.findById(id);
-        return guest.orElseThrow(() -> new RuntimeException(
+    public Optional<Guest>  findById(Long id){
+        return Optional.ofNullable(this.guestRepository.findById(id).orElseThrow(() -> new RuntimeException(
                 "Usuário " + Guest.class.getName() + " não encontrado."
-        ));
+        )));
     }
 
     public Guest createGuest(Guest guest){
